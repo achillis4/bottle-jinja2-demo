@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+    <style>
+        p {
+          font-size: 24px;  
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Home Page2</h2>
+    <p>This is the content of the home page.2</p>
+
+    <h1>Welcome, {{ user.name }}!</h1>
+    <p>You are {{ user.age }} years old.</p>
+    <p>Your email is: {{ user.email }}</p>
+    <h2>Address:</h2>
+    <p>{{ user.address.street }}<br>
+        {{ user.address.city }}, {{ user.address.state }} {{ user.address.zip }}</p>
+    <h2>Hobbies:</h2>
+    <ul>
+        {% for hobby in user.hobbies %}
+        <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-link">Link</button>
+{% endblock %}
