@@ -1,4 +1,4 @@
-from bottle import Bottle, run
+from bottle import Bottle, run, static_file
 from jinja2 import Environment, FileSystemLoader
 
 app = Bottle()
@@ -8,6 +8,11 @@ jinja_env = Environment(
     loader=FileSystemLoader('templates'),
     autoescape=True
 )
+
+@app.route('/static/<filepath:path>')
+def serve_static(filepath):
+    return static_file(filepath, root='templates/static')
+
 
 @app.route('/')
 def home():
